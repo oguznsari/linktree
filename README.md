@@ -2,4 +2,7 @@
 
 ``` bash
 yarn add next-auth
+
+# 1st add provider (google) and then adapter to store data
+yarn add @auth/mongodb-adapter mongodb
 ```
