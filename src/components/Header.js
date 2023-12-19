@@ -6,7 +6,6 @@ import { FaLink } from "react-icons/fa";
 
 const Header = async () => {
   const session = await getServerSession(authOptions);
-  // console.log({ session });
   return (
     <header className="py-4 bg-white border-b">
       <div className="flex justify-between max-w-4xl px-6 mx-auto">

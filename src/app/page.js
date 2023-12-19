@@ -1,4 +1,9 @@
-export default function Home() {
+import { getServerSession } from "next-auth";
+import HeroForm from "../components/forms/HeroForm";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+
+export default async function Home() {
+  const session = await getServerSession(authOptions);
   return (
     <main>
       <section className="pt-32">
@@ -8,17 +13,11 @@ export default function Home() {
             <br />
             for everything
           </h1>
-          <h2 className="text-gray-500 text-xl mt-6">
+          <h2 className="mt-6 text-xl text-gray-500">
             Share your links, social profiles, contact info and more on one page
           </h2>
+          <HeroForm user={session?.user} />
         </div>
-        <form className="inline-flex items-center shadow-lg shadow-gray-700/20">
-          <span className="bg-white py-4 pl-4">linklist.to/</span>
-          <input type="text" className="py-4" placeholder="username" />
-          <button type="submit" className="bg-blue-500 text-white py-4 px-6">
-            Join for Free
-          </button>
-        </form>
       </section>
     </main>
   );
